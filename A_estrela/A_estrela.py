@@ -11,7 +11,7 @@ def a_estrela(matriz: ndarray,
     destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int]:
     
-    fila_prioridade = [(0 + func_heuristica(origem, destino) * peso, 0, origem)]
+    fila_prioridade = [(func_heuristica(origem, destino) * peso, 0, origem)]
     estados_gerados = estados_visitados = 0
 
     g_custo = {origem: 0}
@@ -25,7 +25,7 @@ def a_estrela(matriz: ndarray,
         if (atual == destino):
             caminho = path(origem, destino, parent)
 
-            return caminho, estados_gerados, estados_visitados, g_atual
+            return caminho, estados_gerados, estados_visitados, g_atual, True
 
 
         for dx, dy in MOVIMENTOS_NLSO:
@@ -45,7 +45,7 @@ def a_estrela(matriz: ndarray,
 
                     heapq.heappush(fila_prioridade, (fn, novo_g, (nx, ny)))
 
-    return [], estados_gerados, estados_visitados, 0
+    return [], estados_gerados, estados_visitados, 0, False
 
 
 def path(origem: tuple[int, int], destino: tuple[int, int], parent: dict) -> list[tuple[int, int]]:
