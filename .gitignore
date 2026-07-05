@@ -1,5 +1,6 @@
 # Environment
 .env
+resultados/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
