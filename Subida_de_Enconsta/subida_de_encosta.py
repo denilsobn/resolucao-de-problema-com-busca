@@ -11,7 +11,7 @@ def sde_gulosa_deterministica(
     func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
-) -> tuple[list[tuple[int, int]], int, int, int]:
+) -> tuple[list[tuple[int, int]], int, int, int, bool]:
     atual = origem
     caminho = [atual]
     estados_gerados = 0
@@ -53,7 +53,7 @@ def sde_maior_aclive(
     func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
-) -> tuple[list[tuple[int, int]], int, int, int]:
+) -> tuple[list[tuple[int, int]], int, int, int, bool]:
     atual = origem
     caminho = [atual]
     estados_gerados = 0
@@ -97,7 +97,7 @@ def sde_gulosa_estocastica(
     func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
-) -> tuple[list[tuple[int, int]], int, int, int]:
+) -> tuple[list[tuple[int, int]], int, int, int, bool]:
     atual = origem
     caminho = [atual]
     estados_gerados = 0
