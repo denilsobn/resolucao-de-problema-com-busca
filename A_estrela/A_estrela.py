@@ -12,7 +12,7 @@ def a_estrela(
     peso=1,
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
-) -> tuple[list[tuple[int, int]], int, int, int]:
+) -> tuple[list[tuple[int, int]], int, int, int, bool]:
 
     fila_prioridade = [(func_heuristica(origem, destino) * peso, 0, origem)]
     estados_gerados = estados_visitados = 0

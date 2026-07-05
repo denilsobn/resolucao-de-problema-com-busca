@@ -11,7 +11,7 @@ def busca_gulosa(
     func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
-) -> tuple[list[tuple[int, int]], int, int, int]:
+) -> tuple[list[tuple[int, int]], int, int, int, bool]:
 
     fila_prioridade = [(func_heuristica(origem, destino), 0, origem)]
     estados_gerados = estados_visitados = 0
