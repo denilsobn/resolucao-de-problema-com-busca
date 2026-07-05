@@ -1,6 +1,8 @@
-from equacoes.heuristicas import dist_euclidiana, dist_manhattan
-import gerador_de_entradas, A_estrela.A_estrela as As
+import A_estrela.A_estrela as As
+import gerador_de_entradas
 import viewer
+from equacoes.heuristicas import dist_euclidiana, dist_manhattan
+
 
 def run_experimento():
 
@@ -8,7 +10,7 @@ def run_experimento():
 
     for _ in range(20):
         entradas.append(gerador_de_entradas.gerar_entrada(0.2))
-    
+
     # mostrar entradas
 
     tabela_resultados_a = []
@@ -26,4 +28,4 @@ def run_experimento():
         tabela_resultados_e.append(As.a_estrela(entrada, dist_manhattan, 3))
         tabela_resultados_f.append(As.a_estrela(entrada, dist_manhattan, 6))
 
-    viewer.visualizar_grid(entradas[0], tabela_resultados_a[0][0], 'A estrela')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_a[0][0], "A estrela")

@@ -1,6 +1,10 @@
-from equacoes.heuristicas import dist_euclidiana, dist_manhattan
-import gerador_de_entradas, A_estrela.A_estrela as As, Busca_Gulosa.busca_gulosa as bg, Subida_de_Enconsta.subida_de_encosta as sde
+import A_estrela.A_estrela as As
+import Busca_Gulosa.busca_gulosa as bg
+import gerador_de_entradas
+import Subida_de_Enconsta.subida_de_encosta as sde
 import viewer
+from equacoes.heuristicas import dist_manhattan
+
 
 def run_experimento():
 
@@ -14,7 +18,7 @@ def run_experimento():
         entradas_20.append(gerador_de_entradas.gerar_entrada(0.2))
         entradas_30.append(gerador_de_entradas.gerar_entrada(0.3))
         entradas_40.append(gerador_de_entradas.gerar_entrada(0.4))
-    
+
     # mostrar entradas
 
     tabela_resultados_a1 = []
@@ -51,8 +55,19 @@ def run_experimento():
         tabela_resultados_a4.append(sde.sde_maior_aclive(entrada, dist_manhattan))
         tabela_resultados_b4.append(bg.busca_gulosa(entrada, dist_manhattan))
         tabela_resultados_c4.append(As.a_estrela(entrada, dist_manhattan, 1))
-        
 
-    viewer.visualizar_grid(entradas_10[0], tabela_resultados_a1[0][0], f'sde maior_aclive com dist_manhattan {tabela_resultados_a1[0][-1]}')
-    viewer.visualizar_grid(entradas_10[0], tabela_resultados_b1[0][0], f'busca gulosa com dist_manhattan {tabela_resultados_b1[0][-1]}')
-    viewer.visualizar_grid(entradas_10[0], tabela_resultados_c1[0][0], f'A* com dist_manhattan {tabela_resultados_c1[0][-1]}')
+    viewer.visualizar_grid(
+        entradas_10[0],
+        tabela_resultados_a1[0][0],
+        f"sde maior_aclive com dist_manhattan {tabela_resultados_a1[0][-1]}",
+    )
+    viewer.visualizar_grid(
+        entradas_10[0],
+        tabela_resultados_b1[0][0],
+        f"busca gulosa com dist_manhattan {tabela_resultados_b1[0][-1]}",
+    )
+    viewer.visualizar_grid(
+        entradas_10[0],
+        tabela_resultados_c1[0][0],
+        f"A* com dist_manhattan {tabela_resultados_c1[0][-1]}",
+    )

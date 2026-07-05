@@ -1,6 +1,8 @@
-import numpy as np
-from collections import deque
 import math
+from collections import deque
+
+import numpy as np
+
 
 def gerar_entrada(porcetagem: float) -> np.ndarray:
 
@@ -18,12 +20,15 @@ def gerar_entrada(porcetagem: float) -> np.ndarray:
 
             matriz[x][y] = -1
 
-        if (isValid(matriz, (0, 0), (14, 14))):
+        if isValid(matriz, (0, 0), (14, 14)):
             return matriz
 
 
-def isValid(matriz: np.ndarray, origem: tuple[int, int] = (0, 0), 
-            destino: tuple[int, int] = (14, 14)) -> bool:
+def isValid(
+    matriz: np.ndarray,
+    origem: tuple[int, int] = (0, 0),
+    destino: tuple[int, int] = (14, 14),
+) -> bool:
 
     vis = np.zeros((15, 15), dtype=bool)
     vis[origem[0]][origem[1]] = True
@@ -39,20 +44,15 @@ def isValid(matriz: np.ndarray, origem: tuple[int, int] = (0, 0),
             nx = x + dx[i]
             ny = y + dy[i]
 
-            if 0 <= nx < 15 and 0 <= ny < 15 and matriz[nx][ny] != -1 and not vis[nx][ny]:
+            if (
+                0 <= nx < 15
+                and 0 <= ny < 15
+                and matriz[nx][ny] != -1
+                and not vis[nx][ny]
+            ):
                 vis[nx][ny] = True
                 if (nx, ny) == destino:
                     return True
                 q.append((nx, ny))
 
-
     return False
-
-
-
-    
-
-
-
-
-

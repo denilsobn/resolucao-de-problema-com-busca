@@ -1,4 +1,4 @@
-from math import sqrt, floor
+from math import sqrt
 
 
 def dist_euclidiana(origem: tuple[int, int], destino: tuple[int, int]) -> float:

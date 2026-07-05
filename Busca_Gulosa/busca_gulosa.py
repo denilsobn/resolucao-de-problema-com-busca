@@ -1,15 +1,18 @@
-from typing import Callable
-from numpy import ndarray
 import heapq
+from typing import Callable
+
+from numpy import ndarray
 
 MOVIMENTOS_NLSO = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
-def busca_gulosa(matriz: ndarray,
-                 func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
-                 origem: tuple[int, int] = (0, 0),
-                 destino: tuple[int, int] = (14, 14),
+
+def busca_gulosa(
+    matriz: ndarray,
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    origem: tuple[int, int] = (0, 0),
+    destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int]:
-    
+
     fila_prioridade = [(func_heuristica(origem, destino), 0, origem)]
     estados_gerados = estados_visitados = 0
 
@@ -18,7 +21,7 @@ def busca_gulosa(matriz: ndarray,
 
     while fila_prioridade:
         estados_visitados += 1
-        
+
         h_atual, g_atual, atual = heapq.heappop(fila_prioridade)
 
         if atual == destino:
@@ -29,12 +32,11 @@ def busca_gulosa(matriz: ndarray,
             nx, ny = atual[0] + dx, atual[1] + dy
 
             if 0 <= nx < 15 and 0 <= ny < 15 and matriz[nx][ny] != -1:
-                
                 if (nx, ny) not in explorado:
                     estados_gerados += 1
                     explorado.add((nx, ny))
                     parent[(nx, ny)] = atual
-                    
+
                     novo_g = g_atual + int(matriz[nx][ny])
 
                     fn = func_heuristica((nx, ny), destino)
@@ -43,7 +45,10 @@ def busca_gulosa(matriz: ndarray,
 
     return [], estados_gerados, estados_visitados, 0, False
 
-def path(origem: tuple[int, int], destino: tuple[int, int], parent: dict) -> list[tuple[int, int]]:
+
+def path(
+    origem: tuple[int, int], destino: tuple[int, int], parent: dict
+) -> list[tuple[int, int]]:
     caminho = []
     curr = destino
     while curr in parent:
