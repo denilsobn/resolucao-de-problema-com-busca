@@ -1,14 +1,14 @@
 from math import sqrt, floor
 
 
-def dist_euclidiana(origem: tuple[int, int], destino: tuple[int, int]) -> int:
+def dist_euclidiana(origem: tuple[int, int], destino: tuple[int, int]) -> float:
     x1, y1 = origem
     x2, y2 = destino
 
-    return floor(sqrt(abs(x1 - x2) ** 2 + abs(y1 - y2) ** 2))
+    return sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
 
-def dist_manhattan(origem: tuple[int, int], destino: tuple[int, int]) -> int:
+def dist_manhattan(origem: tuple[int, int], destino: tuple[int, int]) -> float:
     x1, y1 = origem
     x2, y2 = destino
 

@@ -45,12 +45,12 @@ def sde_gulosa_deterministica(
     if atual == destino:
         estados_visitados += 1
 
-    return caminho, estados_gerados, estados_visitados, custo_total
+    return caminho, estados_gerados, estados_visitados, custo_total, atual == destino
 
 
 def sde_maior_aclive(
     matriz: ndarray,
-    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int]:
@@ -89,7 +89,7 @@ def sde_maior_aclive(
     if atual == destino:
         estados_visitados += 1
 
-    return caminho, estados_gerados, estados_visitados, custo_total
+    return caminho, estados_gerados, estados_visitados, custo_total, atual == destino
 
 
 def sde_gulosa_estocastica(
@@ -133,4 +133,4 @@ def sde_gulosa_estocastica(
     if atual == destino:
         estados_visitados += 1
 
-    return caminho, estados_gerados, estados_visitados, custo_total
+    return caminho, estados_gerados, estados_visitados, custo_total, atual == destino

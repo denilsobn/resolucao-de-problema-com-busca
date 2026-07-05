@@ -1,25 +1,25 @@
 import numpy as np
 from collections import deque
+import math
 
-def gerar_entrada(porcetagem: int) -> np.ndarray:
+def gerar_entrada(porcetagem: float) -> np.ndarray:
 
-    matriz = np.random.randint(3, 7, size=(15, 15))
-    blocos = int(225 * porcetagem)
+    while True:
+        matriz = np.random.randint(3, 7, size=(15, 15))
+        blocos = math.floor(225 * porcetagem)
 
-    for _ in range(blocos):
-        x = np.random.randint(0, 15)
-        y = np.random.randint(0, 15)
-
-        while matriz[x][y] == -1:
+        for _ in range(blocos):
             x = np.random.randint(0, 15)
             y = np.random.randint(0, 15)
 
-        matriz[x][y] = -1
+            while (x == 0 and y == 0) or (x == 14 and y == 14) or matriz[x][y] == -1:
+                x = np.random.randint(0, 15)
+                y = np.random.randint(0, 15)
 
-    if (isValid(matriz, (0, 0), (14, 14))):
-        return matriz
-    else:
-        return gerar_entrada(porcetagem)
+            matriz[x][y] = -1
+
+        if (isValid(matriz, (0, 0), (14, 14))):
+            return matriz
 
 
 def isValid(matriz: np.ndarray, origem: tuple[int, int] = (0, 0), 

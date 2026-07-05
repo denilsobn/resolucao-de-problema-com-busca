@@ -2,7 +2,7 @@ from equacoes.heuristicas import dist_euclidiana, dist_manhattan
 import gerador_de_entradas, A_estrela.A_estrela as As
 import viewer
 
-def run_experimento_2():
+def run_experimento():
 
     entradas = []
 

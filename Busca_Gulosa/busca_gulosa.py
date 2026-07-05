@@ -23,7 +23,7 @@ def busca_gulosa(matriz: ndarray,
 
         if atual == destino:
             caminho = path(origem, destino, parent)
-            return caminho, estados_gerados, estados_visitados, g_atual
+            return caminho, estados_gerados, estados_visitados, g_atual, True
 
         for dx, dy in MOVIMENTOS_NLSO:
             nx, ny = atual[0] + dx, atual[1] + dy
@@ -41,7 +41,7 @@ def busca_gulosa(matriz: ndarray,
 
                     heapq.heappush(fila_prioridade, (fn, novo_g, (nx, ny)))
 
-    return [], estados_gerados, estados_visitados, 0
+    return [], estados_gerados, estados_visitados, 0, False
 
 def path(origem: tuple[int, int], destino: tuple[int, int], parent: dict) -> list[tuple[int, int]]:
     caminho = []

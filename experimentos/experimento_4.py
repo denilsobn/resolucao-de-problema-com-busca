@@ -2,7 +2,7 @@ from equacoes.heuristicas import dist_euclidiana, dist_manhattan
 import gerador_de_entradas, A_estrela.A_estrela as As, Busca_Gulosa.busca_gulosa as bg, Subida_de_Enconsta.subida_de_encosta as sde
 import viewer
 
-def run_experimento_2():
+def run_experimento():
 
     entradas_10 = []
     entradas_20 = []
@@ -53,4 +53,6 @@ def run_experimento_2():
         tabela_resultados_c4.append(As.a_estrela(entrada, dist_manhattan, 1))
         
 
-    viewer.visualizar_grid(entradas_20[0], tabela_resultados_a1[0][0], 'A estrela')
+    viewer.visualizar_grid(entradas_10[0], tabela_resultados_a1[0][0], f'sde maior_aclive com dist_manhattan {tabela_resultados_a1[0][-1]}')
+    viewer.visualizar_grid(entradas_10[0], tabela_resultados_b1[0][0], f'busca gulosa com dist_manhattan {tabela_resultados_b1[0][-1]}')
+    viewer.visualizar_grid(entradas_10[0], tabela_resultados_c1[0][0], f'A* com dist_manhattan {tabela_resultados_c1[0][-1]}')

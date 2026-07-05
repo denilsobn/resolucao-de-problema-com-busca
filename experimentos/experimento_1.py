@@ -1,8 +1,9 @@
 from equacoes.heuristicas import dist_euclidiana, dist_manhattan
 import gerador_de_entradas
 import Subida_de_Enconsta.subida_de_encosta as sde
+import viewer
 
-def run_experimento_1():
+def run_experimento():
 
     entradas = []
 
@@ -26,5 +27,13 @@ def run_experimento_1():
         tabela_resultados_d.append(sde.sde_maior_aclive(entrada, dist_manhattan, (0, 0), (14, 14)))
         tabela_resultados_e.append(sde.sde_gulosa_estocastica(entrada, dist_euclidiana, (0, 0), (14, 14)))
         tabela_resultados_f.append(sde.sde_gulosa_estocastica(entrada, dist_manhattan, (0, 0), (14, 14)))
+    
+    viewer.visualizar_grid(entradas[0], tabela_resultados_a[0][0], 'sde_gulosa_deterministica com dist_euclidiana')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_b[0][0], 'sde_gulosa_deterministica com dist_manhattan')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_c[0][0], 'sde_maior_aclive com dist_euclidiana')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_d[0][0], 'sde_maior_aclive com dist_manhattan')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_e[0][0], 'sde_gulosa_estocastica com dist_euclidiana')
+    viewer.visualizar_grid(entradas[0], tabela_resultados_f[0][0], 'sde_gulosa_estocastica com dist_manhattan')
+    
 
     
