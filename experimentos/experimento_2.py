@@ -1,8 +1,8 @@
 import A_estrela.A_estrela as As
 import Busca_Gulosa.busca_gulosa as bg
 import gerador_de_entradas
+from data.save import salvar_dados_agregados, salvar_dados_brutos, salvar_mapas_em_txt
 from equacoes.heuristicas import dist_euclidiana, dist_manhattan
-from data.save import salvar_mapas_em_txt, salvar_dados_brutos, salvar_dados_agregados
 
 
 def run_experimento():
