@@ -8,7 +8,7 @@ MOVIMENTOS_NLSO = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
 def sde_gulosa_deterministica(
     matriz: ndarray,
-    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int, bool]:
@@ -94,7 +94,7 @@ def sde_maior_aclive(
 
 def sde_gulosa_estocastica(
     matriz: ndarray,
-    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int, bool]:

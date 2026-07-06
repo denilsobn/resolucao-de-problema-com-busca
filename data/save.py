@@ -27,15 +27,45 @@ def salvar_mapas_em_txt(
 
 def salvar_dados_brutos(nome_arquivo: str, resultados_brutos: list):
     """
-    Salva os dados brutos de todas as execuções em um arquivo de texto.
+    Salva os dados brutos de todas as execuções em um arquivo de texto markdown.
     """
     nome_arquivo = os.path.join("resultados", nome_arquivo)
 
     with open(nome_arquivo, "w", encoding="utf-8") as f:
-        f.write("## 2. Dados Brutos de Todas as Execuções\n\n")
+        f.write("## Dados Brutos de Todas as Execuções\n\n")
         f.write(
             "| Mapa | Densidade | Algoritmo | Gerados | Visitados | Custo | Sucesso |\n"
         )
         f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
         for linha in resultados_brutos:
             f.write(linha + "\n")
+
+
+def salvar_dados_agregados(nome_arquivo: str, agregados: dict, num_execucoes: int):
+    """
+    Salva as médias e taxas de sucesso em um arquivo Markdown.
+    """
+    nome_arquivo = os.path.join("resultados", nome_arquivo)
+
+    with open(nome_arquivo, "w", encoding="utf-8") as f:
+        f.write("## Dados Agregados (Médias e Taxa de Sucesso)\n\n")
+        f.write(
+            "| Densidade | Algoritmo | Média Gerados | Média Visitados | Média Custo (Soluções) | Taxa de Sucesso |\n"
+        )
+        f.write("| :--- | :--- | :--- | :--- | :--- | :--- |\n")
+
+        for densidade, resultados_algo in agregados.items():
+            for algo, stats in resultados_algo.items():
+                med_gerados = stats["gerados"] / num_execucoes
+                med_visitados = stats["visitados"] / num_execucoes
+                taxa_suc = (stats["sucessos"] / num_execucoes) * 100
+
+                # A média de custo só conta execuções que encontraram o objetivo
+                if stats["sucessos"] > 0:
+                    med_custo = stats["custo"] / stats["sucessos"]
+                else:
+                    med_custo = 0
+
+                f.write(
+                    f"| {int(densidade * 100)}% | {algo} | {med_gerados:.1f} | {med_visitados:.1f} | {med_custo:.1f} | {taxa_suc:.1f}% |\n"
+                )

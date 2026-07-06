@@ -8,7 +8,7 @@ MOVIMENTOS_NLSO = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
 def busca_gulosa(
     matriz: ndarray,
-    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
 ) -> tuple[list[tuple[int, int]], int, int, int, bool]:

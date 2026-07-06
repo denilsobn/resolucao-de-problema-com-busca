@@ -8,7 +8,7 @@ MOVIMENTOS_NLSO = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
 def a_estrela(
     matriz: ndarray,
-    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], int],
+    func_heuristica: Callable[[tuple[int, int], tuple[int, int]], float],
     peso=1,
     origem: tuple[int, int] = (0, 0),
     destino: tuple[int, int] = (14, 14),
