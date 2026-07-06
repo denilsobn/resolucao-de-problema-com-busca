@@ -5,12 +5,12 @@ if not os.path.exists("resultados"):
 
 
 def salvar_mapas_em_txt(
-    mapas_por_densidade: dict[float, list], nome_arquivo: str = "mapas_experimento.txt"
+    mapas_por_densidade: dict[float, list], nome_arquivo: str, experimento: int
 ):
     """
     Salva todos os mapas gerados num único arquivo de texto, alinhando as colunas.
     """
-    nome_arquivo = os.path.join("resultados", nome_arquivo)
+    nome_arquivo = pasta_experimento(nome_arquivo, experimento)
 
     with open(nome_arquivo, "w", encoding="utf-8") as f:
         for densidade, mapas in mapas_por_densidade.items():
@@ -25,14 +25,16 @@ def salvar_mapas_em_txt(
                 f.write("\n")
 
 
-def salvar_dados_brutos(nome_arquivo: str, resultados_brutos: list):
+def salvar_dados_brutos(nome_arquivo: str, resultados_brutos: list, experimento: int):
     """
     Salva os dados brutos de todas as execuções em um arquivo de texto markdown.
     """
-    nome_arquivo = os.path.join("resultados", nome_arquivo)
+    nome_arquivo = pasta_experimento(nome_arquivo, experimento)
 
     with open(nome_arquivo, "w", encoding="utf-8") as f:
-        f.write("## Dados Brutos de Todas as Execuções\n\n")
+        f.write(
+            f"## Dados Brutos de Todas as Execuções - Experimento {experimento}\n\n"
+        )
         f.write(
             "| Mapa | Densidade | Algoritmo | Gerados | Visitados | Custo | Sucesso |\n"
         )
@@ -41,14 +43,18 @@ def salvar_dados_brutos(nome_arquivo: str, resultados_brutos: list):
             f.write(linha + "\n")
 
 
-def salvar_dados_agregados(nome_arquivo: str, agregados: dict, num_execucoes: int):
+def salvar_dados_agregados(
+    nome_arquivo: str, agregados: dict, num_execucoes: int, experimento: int
+):
     """
     Salva as médias e taxas de sucesso em um arquivo Markdown.
     """
-    nome_arquivo = os.path.join("resultados", nome_arquivo)
+    nome_arquivo = pasta_experimento(nome_arquivo, experimento)
 
     with open(nome_arquivo, "w", encoding="utf-8") as f:
-        f.write("## Dados Agregados (Médias e Taxa de Sucesso)\n\n")
+        f.write(
+            f"## Dados Agregados (Médias e Taxa de Sucesso) - Experimento {experimento}\n\n"
+        )
         f.write(
             "| Densidade | Algoritmo | Média Gerados | Média Visitados | Média Custo (Soluções) | Taxa de Sucesso |\n"
         )
@@ -69,3 +75,13 @@ def salvar_dados_agregados(nome_arquivo: str, agregados: dict, num_execucoes: in
                 f.write(
                     f"| {int(densidade * 100)}% | {algo} | {med_gerados:.1f} | {med_visitados:.1f} | {med_custo:.1f} | {taxa_suc:.1f}% |\n"
                 )
+
+
+def pasta_experimento(nome_arquivo, experimento):
+    exp = os.path.join("resultados", "experimento_" + str(experimento))
+
+    if not os.path.exists(exp):
+        os.makedirs(exp)
+
+    nome_arquivo = os.path.join(exp, nome_arquivo)
+    return nome_arquivo

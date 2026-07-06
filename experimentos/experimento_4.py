@@ -27,7 +27,7 @@ def run_experimento():
         0.3: entradas_30,
         0.4: entradas_40,
     }
-    salvar_mapas_em_txt(mapas_por_densidade, "mapas_experimento_4.txt")
+    salvar_mapas_em_txt(mapas_por_densidade, "mapas_experimento_4.txt", 4)
 
     tabela_resultados_a1 = []
     tabela_resultados_a2 = []
@@ -104,8 +104,8 @@ def run_experimento():
                     agregados[densidade][nome_algo]["custo"] += custo
                     agregados[densidade][nome_algo]["sucessos"] += 1
 
-    salvar_dados_brutos("resultados_brutos_exp4.md", resultados_brutos)
-    salvar_dados_agregados("resultados_agregados_exp4.md", agregados, num_execucoes)
+    salvar_dados_brutos("resultados_brutos_exp4.md", resultados_brutos, 4)
+    salvar_dados_agregados("resultados_agregados_exp4.md", agregados, num_execucoes, 4)
     print("Relatórios do Experimento 4 exportados com sucesso em Markdown!")
     print("Resultados brutos e agregados salvos na pasta 'resultados/'.")
 
