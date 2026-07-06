@@ -64,8 +64,11 @@ def run_experimento():
             "sucessos": 0,
         }
 
-        for i, res in enumerate(tabela):
-            id_mapa = f"Mapa_0%_{i + 1}"
+    for i in range(num_execucoes):
+        id_mapa = f"Mapa_0%_{i + 1}"
+
+        for nome_algo, tabela in algoritmos:
+            res = tabela[i]
             caminho, gerados, visitados, custo, sucesso = res
             status_sucesso = "Sim" if sucesso else "Não"
 
