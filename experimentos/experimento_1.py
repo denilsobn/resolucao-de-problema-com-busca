@@ -90,26 +90,33 @@ def run_experimento():
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_a[0][0],
+        1,
         "sde_gulosa_deterministica com dist_euclidiana",
     )
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_b[0][0],
+        1,
         "sde_gulosa_deterministica com dist_manhattan",
     )
     viewer.visualizar_grid(
-        entradas[0], tabela_resultados_c[0][0], "sde_maior_aclive com dist_euclidiana"
+        entradas[0],
+        tabela_resultados_c[0][0],
+        1,
+        "sde_maior_aclive com dist_euclidiana",
     )
     viewer.visualizar_grid(
-        entradas[0], tabela_resultados_d[0][0], "sde_maior_aclive com dist_manhattan"
+        entradas[0], tabela_resultados_d[0][0], 1, "sde_maior_aclive com dist_manhattan"
     )
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_e[0][0],
+        1,
         "sde_gulosa_estocastica com dist_euclidiana",
     )
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_f[0][0],
+        1,
         "sde_gulosa_estocastica com dist_manhattan",
     )

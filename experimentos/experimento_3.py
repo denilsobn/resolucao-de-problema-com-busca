@@ -79,5 +79,41 @@ def run_experimento():
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_a[0][0],
+        3,
         f"A* (h1 = 1x D_E) - Sucesso: {tabela_resultados_a[0][-1]}",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_b[0][0],
+        3,
+        f"A* (h2 = 3x D_E) - Sucesso: {tabela_resultados_b[0][-1]}",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_c[0][0],
+        3,
+        f"A* (h3 = 6x D_E) - Sucesso: {tabela_resultados_c[0][-1]}",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_d[0][0],
+        3,
+        f"A* (h4 = 1x D_M) - Sucesso: {tabela_resultados_d[0][-1]}",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_e[0][0],
+        3,
+        f"A* (h5 = 3x D_M) - Sucesso: {tabela_resultados_e[0][-1]}",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_f[0][0],
+        3,
+        f"A* (h6 = 6x D_M) - Sucesso: {tabela_resultados_f[0][-1]}",
     )

@@ -112,15 +112,83 @@ def run_experimento():
     viewer.visualizar_grid(
         entradas_10[0],
         tabela_resultados_a1[0][0],
-        f"sde maior_aclive com dist_manhattan (Sucesso: {tabela_resultados_a1[0][-1]})",
+        4,
+        f"sde maior_aclive com dist_manhattan_1 (Sucesso: {tabela_resultados_a1[0][-1]})",
     )
+
     viewer.visualizar_grid(
         entradas_10[0],
         tabela_resultados_b1[0][0],
-        f"busca gulosa com dist_manhattan (Sucesso: {tabela_resultados_b1[0][-1]})",
+        4,
+        f"busca gulosa com dist_manhattan_1 (Sucesso: {tabela_resultados_b1[0][-1]})",
     )
+
     viewer.visualizar_grid(
         entradas_10[0],
         tabela_resultados_c1[0][0],
-        f"A* com dist_manhattan (Sucesso: {tabela_resultados_c1[0][-1]})",
+        4,
+        f"A* com dist_manhattan_1 (Sucesso: {tabela_resultados_c1[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_20[0],
+        tabela_resultados_a2[0][0],
+        4,
+        f"sde maior_aclive com dist_manhattan_2 (Sucesso: {tabela_resultados_a2[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_20[0],
+        tabela_resultados_b2[0][0],
+        4,
+        f"busca gulosa com dist_manhattan_2 (Sucesso: {tabela_resultados_b2[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_20[0],
+        tabela_resultados_c2[0][0],
+        4,
+        f"A* com dist_manhattan_2 (Sucesso: {tabela_resultados_c2[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_30[0],
+        tabela_resultados_a3[0][0],
+        4,
+        f"sde maior_aclive com dist_manhattan_3 (Sucesso: {tabela_resultados_a3[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_30[0],
+        tabela_resultados_b3[0][0],
+        4,
+        f"busca gulosa com dist_manhattan_3 (Sucesso: {tabela_resultados_b3[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_30[0],
+        tabela_resultados_c3[0][0],
+        4,
+        f"A* com dist_manhattan_3 (Sucesso: {tabela_resultados_c3[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_40[0],
+        tabela_resultados_a4[0][0],
+        4,
+        f"sde maior_aclive com dist_manhattan_4 (Sucesso: {tabela_resultados_a4[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_40[0],
+        tabela_resultados_b4[0][0],
+        4,
+        f"busca gulosa com dist_manhattan_4 (Sucesso: {tabela_resultados_b4[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas_40[0],
+        tabela_resultados_c4[0][0],
+        4,
+        f"A* com dist_manhattan_4 (Sucesso: {tabela_resultados_c4[0][-1]})",
     )

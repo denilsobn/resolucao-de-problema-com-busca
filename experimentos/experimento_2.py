@@ -3,6 +3,7 @@ import Busca_Gulosa.busca_gulosa as bg
 import gerador_de_entradas
 from data.save import salvar_dados_agregados, salvar_dados_brutos, salvar_mapas_em_txt
 from equacoes.heuristicas import dist_euclidiana, dist_manhattan
+import viewer
 
 
 def run_experimento():
@@ -76,3 +77,31 @@ def run_experimento():
     salvar_dados_agregados("resultados_agregados_exp2.md", agregados, num_execucoes, 2)
     print("Relatórios do Experimento 2 exportados com sucesso em Markdown!")
     print("Resultados brutos e agregados salvos na pasta 'resultados/'.")
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_a[0][0],
+        2,
+        f"busca gulosa com dist_euclidiana (Sucesso: {tabela_resultados_a[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_b[0][0],
+        2,
+        f"busca gulosa com dist_manhattan (Sucesso: {tabela_resultados_b[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_c[0][0],
+        2,
+        f"A* com dist_euclidiana (Sucesso: {tabela_resultados_c[0][-1]})",
+    )
+
+    viewer.visualizar_grid(
+        entradas[0],
+        tabela_resultados_d[0][0],
+        2,
+        f"A* com dist_manhattan (Sucesso: {tabela_resultados_d[0][-1]})",
+    )

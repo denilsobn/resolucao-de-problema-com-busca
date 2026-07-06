@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
+import os
 
 
-def visualizar_grid(matriz: np.ndarray, caminho: list[tuple[int, int]], algoritmo=""):
+def visualizar_grid(
+    matriz: np.ndarray, caminho: list[tuple[int, int]], exp: int, algoritmo=""
+):
     fig, ax = plt.subplots(figsize=(8, 8))
 
     cmap = ListedColormap(["#404040", "#F0F0F0"])
@@ -42,4 +45,11 @@ def visualizar_grid(matriz: np.ndarray, caminho: list[tuple[int, int]], algoritm
 
     plt.title(algoritmo)
     plt.legend()
-    plt.show()
+    plt.tight_layout()
+
+    if not os.path.exists(f"resultados/experimento_{str(exp)}/images"):
+        os.makedirs(f"resultados/experimento_{str(exp)}/images")
+
+    plt.savefig(
+        f"resultados/experimento_{str(exp)}/images/{algoritmo}.png", bbox_inches="tight"
+    )
