@@ -1,6 +1,6 @@
 # Resolução de Problemas com Busca — IA
 
-Este repositório contém a implementação prática e a análise experimental de algoritmos de busca cega e heurística aplicados à navegação em labirintos matriciais ($15 \times 15$) com custos de movimentação variáveis (pesos de 3 a 6) e obstáculos (peso -1). O projeto foi desenvolvido de forma modular, permitindo a execução de múltiplos cenários de teste (Experimentos 1 a 4) com geração automática de relatórios em formato Markdown e persistência dos mapas gerados.
+Este repositório contém a implementação prática e a análise experimental de algoritmos de busca cega e heurística aplicados à navegação em labirintos matriciais $15 \times 15$ com custos de movimentação variáveis pesos de 3 a 6 e obstáculos peso -1. O projeto foi desenvolvido de forma modular, permitindo a execução de múltiplos cenários de teste de Experimentos 1 a 4 com geração automática de relatórios em formato Markdown e persistência dos mapas gerados.
 
 ---
 
@@ -48,7 +48,9 @@ A arquitetura do sistema foi projetada de forma modular para isolar os algoritmo
 │   ├── experimento_2.py      # Comparação Busca Gulosa vs A* (0% obstáculos)
 │   ├── experimento_3.py      # A* com variação de pesos (20% obstáculos)
 │   └── experimento_4.py      # Análise de estresse (Obstáculos de 10% a 40%)
-├── resultados/               # Diretório autogerado onde os outputs são salvos
+├── resultados/
+    ├── dados relatorio       # Dados usados para fazer o relatório
+    ├── experimento_x         # Dados gerados automaticamente com o código
 ├── gerador_de_entradas.py    # Geração de grids pseudoaleatórios com validação BFS
 ├── viewer.py                 # Renderização visual dos grids e caminhos com Matplotlib
 ├── main.py                   # CLI central de execução dos experimentos
@@ -65,20 +67,20 @@ A arquitetura do sistema foi projetada de forma modular para isolar os algoritmo
 
 1. **Distância Manhattan:** Adequada para movimentos estritamente ortogonais (norte, sul, leste, oeste).
 
-2. **Distância Euclidiana:** Calcula a linha reta entre as coordenadas. Conforme exigido pela especificação, a implementação aplica a função de piso (`math.floor`) sobre o resultado da raiz quadrada para compatibilidade com o domínio inteiro do problema.
+2. **Distância Euclidiana:** Calcula a linha reta entre as coordenadas
 
 ### Algoritmos de Busca
 
 * **Subida de Encosta (Hill Climbing):**
 * *Gulosa Determinística:* Move-se para o primeiro vizinho estritamente melhor encontrado.
 
-* *Maior Aclive (Steepest-Ascent):* Avalia todos os vizinhos ortogonais e escolhe aquele que maximiza o ganho heurístico.
+* *Maior Aclive:* Avalia todos os vizinhos ortogonais e escolhe aquele que maximiza o ganho heurístico.
 
 * *Gulosa Estocástica:* Seleciona aleatoriamente um vizinho dentre todos os que melhoram a heurística atual.
 
 * **Busca Gulosa (Greedy Best-First Search):** Utiliza uma fila de prioridades (`heapq`) baseada unicamente no valor da função heurística $f(n) = h(n)$.
 
-* **Algoritmo A*:** Combina o custo real acumulado com a estimativa heurística através da função $f(n) = g(n) + w \cdot h(n)$, onde $w$ representa o peso atribuído à heurística (útil para comportamento inflacionado).
+* **Algoritmo A Estrela:** Combina o custo real acumulado com a estimativa heurística através da função $f(n) = g(n) + w \cdot h(n)$, onde $w$ representa o peso atribuído à heurística (útil para comportamento inflacionado).
 
 ---
 
@@ -100,17 +102,17 @@ A arquitetura do sistema foi projetada de forma modular para isolar os algoritmo
 
 * **Configuração:** 20 mapas com 20% de densidade de obstáculos.
 
-* **Objetivo:** Testar o comportamento do A* inflacionado utilizando multiplicadores de peso ($w = 1$, $w = 3$ e $w = 6$). Analisa-se a transição do algoritmo de um comportamento ótimo para uma busca agressiva similar à Gulosa.
+* **Objetivo:** Testar o comportamento do A* inflacionado utilizando multiplicadores de peso ($w = 1$, $w = 3$ e $w = 6$). Analisa-se a transição do algoritmo de um comportamento ótimo para uma busca direta similar à Gulosa.
 
 ### Experimento 4: Análise de Resiliência e Estresse
 
 * **Configuração:** 80 mapas no total, divididos em 4 blocos de 20 instâncias com densidades de barreiras de 10%, 20%, 30% e 40%.
 
-* **Objetivo:** Comparar o algoritmo de Subida de Encosta (Maior Aclive), Busca Gulosa e A* sob forte presença de obstáculos, medindo diretamente a Taxa de Sucesso (resiliência a mínimos locais) e custos computacionais.
+* **Objetivo:** Comparar o algoritmo de Subida de Encosta, Busca Gulosa e A* sob forte presença de obstáculos, medindo diretamente a Taxa de Sucesso e custos computacionais.
 
 ---
 
-## 💾 Mecanismo de Salvamento e Relatórios (Pragmático)
+## 💾 Mecanismo de Salvamento e Relatórios
 
 Para manter o repositório organizado e enxuto, o sistema realiza a persistência automática dos dados na pasta `resultados/` sem gerar complexidade de infraestrutura externa:
 
@@ -152,6 +154,12 @@ python main.py
 
 ```
 
+ou 
+
+```bash
+uv run main.py
+```
+
 O programa exibirá um menu interativo no terminal:
 
 ```text
@@ -163,7 +171,7 @@ Digite o número do experimento que deseja executar (0 para parar):
 
 ```
 
-Ao selecionar uma opção, o algoritmo executará as simulações em lote, criará o diretório `resultados/` com os respectivos arquivos `.txt` e `.md`, e por fim abrirá a janela gráfica do `viewer` exibindo a rota traçada no primeiro mapa de teste do lote para inspeção visual imediata.
+Ao selecionar uma opção, o algoritmo executará as simulações em lote, criará o diretório `resultados/` com os respectivos arquivos `.txt` e `.md`.
 
 ---
 

@@ -35,12 +35,12 @@ def run_experimento():
     print("Processando dados para tabelas...")
 
     nomes_algoritmos = [
-        ("A* (h1 = 1x D_E)", tabela_resultados_a),
-        ("A* (h2 = 3x D_E)", tabela_resultados_b),
-        ("A* (h3 = 6x D_E)", tabela_resultados_c),
-        ("A* (h4 = 1x D_M)", tabela_resultados_d),
-        ("A* (h5 = 3x D_M)", tabela_resultados_e),
-        ("A* (h6 = 6x D_M)", tabela_resultados_f),
+        ("A Estrela (h1 = 1x D_E)", tabela_resultados_a),
+        ("A Estrela (h2 = 3x D_E)", tabela_resultados_b),
+        ("A Estrela (h3 = 6x D_E)", tabela_resultados_c),
+        ("A Estrela (h4 = 1x D_M)", tabela_resultados_d),
+        ("A Estrela (h5 = 3x D_M)", tabela_resultados_e),
+        ("A Estrela (h6 = 6x D_M)", tabela_resultados_f),
     ]
 
     resultados_brutos = []
@@ -80,40 +80,40 @@ def run_experimento():
         entradas[0],
         tabela_resultados_a[0][0],
         3,
-        f"A* (h1 = 1x D_E) - Sucesso: {tabela_resultados_a[0][-1]}",
+        f"A Estrela (h1 = 1x D_E) - Sucesso: {tabela_resultados_a[0][-1]}",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_b[0][0],
         3,
-        f"A* (h2 = 3x D_E) - Sucesso: {tabela_resultados_b[0][-1]}",
+        f"A Estrela (h2 = 3x D_E) - Sucesso: {tabela_resultados_b[0][-1]}",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_c[0][0],
         3,
-        f"A* (h3 = 6x D_E) - Sucesso: {tabela_resultados_c[0][-1]}",
+        f"A Estrela (h3 = 6x D_E) - Sucesso: {tabela_resultados_c[0][-1]}",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_d[0][0],
         3,
-        f"A* (h4 = 1x D_M) - Sucesso: {tabela_resultados_d[0][-1]}",
+        f"A Estrela (h4 = 1x D_M) - Sucesso: {tabela_resultados_d[0][-1]}",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_e[0][0],
         3,
-        f"A* (h5 = 3x D_M) - Sucesso: {tabela_resultados_e[0][-1]}",
+        f"A Estrela (h5 = 3x D_M) - Sucesso: {tabela_resultados_e[0][-1]}",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_f[0][0],
         3,
-        f"A* (h6 = 6x D_M) - Sucesso: {tabela_resultados_f[0][-1]}",
+        f"A Estrela (h6 = 6x D_M) - Sucesso: {tabela_resultados_f[0][-1]}",
     )

@@ -40,8 +40,8 @@ def run_experimento():
     nomes_algoritmos = [
         ("Busca Gulosa (Euclidiana)", tabela_resultados_a),
         ("Busca Gulosa (Manhattan)", tabela_resultados_b),
-        ("A* (Euclidiana)", tabela_resultados_c),
-        ("A* (Manhattan)", tabela_resultados_d),
+        ("A Estrela (Euclidiana)", tabela_resultados_c),
+        ("A Estrela (Manhattan)", tabela_resultados_d),
     ]
 
     resultados_brutos = []
@@ -96,12 +96,12 @@ def run_experimento():
         entradas[0],
         tabela_resultados_c[0][0],
         2,
-        f"A* com dist_euclidiana (Sucesso: {tabela_resultados_c[0][-1]})",
+        f"A Estrela com dist_euclidiana (Sucesso: {tabela_resultados_c[0][-1]})",
     )
 
     viewer.visualizar_grid(
         entradas[0],
         tabela_resultados_d[0][0],
         2,
-        f"A* com dist_manhattan (Sucesso: {tabela_resultados_d[0][-1]})",
+        f"A Estrela com dist_manhattan (Sucesso: {tabela_resultados_d[0][-1]})",
     )

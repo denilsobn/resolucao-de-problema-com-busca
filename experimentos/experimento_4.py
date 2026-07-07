@@ -79,7 +79,7 @@ def run_experimento():
         nomes_algoritmos = [
             ("SdE Maior Aclive", tab_a),
             ("Busca Gulosa", tab_b),
-            ("A*", tab_c),
+            ("A Estrela", tab_c),
         ]
 
         for nome_algo, tabela in nomes_algoritmos:
@@ -127,7 +127,7 @@ def run_experimento():
         entradas_10[0],
         tabela_resultados_c1[0][0],
         4,
-        f"A* com dist_manhattan_1 (Sucesso: {tabela_resultados_c1[0][-1]})",
+        f"A Estrela com dist_manhattan_1 (Sucesso: {tabela_resultados_c1[0][-1]})",
     )
 
     viewer.visualizar_grid(
@@ -148,7 +148,7 @@ def run_experimento():
         entradas_20[0],
         tabela_resultados_c2[0][0],
         4,
-        f"A* com dist_manhattan_2 (Sucesso: {tabela_resultados_c2[0][-1]})",
+        f"A Estrela com dist_manhattan_2 (Sucesso: {tabela_resultados_c2[0][-1]})",
     )
 
     viewer.visualizar_grid(
@@ -169,7 +169,7 @@ def run_experimento():
         entradas_30[0],
         tabela_resultados_c3[0][0],
         4,
-        f"A* com dist_manhattan_3 (Sucesso: {tabela_resultados_c3[0][-1]})",
+        f"A Estrela com dist_manhattan_3 (Sucesso: {tabela_resultados_c3[0][-1]})",
     )
 
     viewer.visualizar_grid(
@@ -190,5 +190,5 @@ def run_experimento():
         entradas_40[0],
         tabela_resultados_c4[0][0],
         4,
-        f"A* com dist_manhattan_4 (Sucesso: {tabela_resultados_c4[0][-1]})",
+        f"A Estrela com dist_manhattan_4 (Sucesso: {tabela_resultados_c4[0][-1]})",
     )
